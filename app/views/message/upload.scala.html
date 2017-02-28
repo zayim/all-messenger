@@ -1,0 +1,18 @@
+@import model.MessageUploadResource
+@import views.html.helper._
+@(sourceOptions: List[(String, String)], uploadForm: Form[MessageUploadResource])(implicit messages: Messages)
+
+@main(title = "Upload Message") {
+
+    <h1>Upload Message</h1>
+
+    @helper.form(action = routes.MessageController.uploadPost, 'enctype -> "multipart/form-data") {
+
+        @select(uploadForm("source"), sourceOptions)
+        @inputFile(uploadForm("file"))
+
+        <input type="submit" />
+
+    }
+
+}

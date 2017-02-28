@@ -1,0 +1,28 @@
+@(messages: List[model.Message])
+
+@main(title = "Messages") {
+
+    <h1>Messages</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <td>Source</td>
+                <td>Sender</td>
+                <td>Receiver</td>
+                <td>Text</td>
+            </tr>
+        </thead>
+        <tbody>
+        @for(message <- messages) {
+            <tr>
+                <td>@message.source</td>
+                <td>@message.sender</td>
+                <td>@message.receiver</td>
+                <td>@message.text</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+}
